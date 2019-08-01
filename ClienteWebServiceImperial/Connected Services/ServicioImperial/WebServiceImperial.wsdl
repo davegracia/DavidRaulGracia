@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AdjuntarRebelde">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjuntarRebeldeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AdjuntarRebeldeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjuntarPlaneta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjuntarPlanetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AdjuntarPlanetaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjuntarIdentificacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="datos" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AdjuntarIdentificacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AdjuntarIdentificacionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AdjuntarRebeldeSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjuntarRebelde" />
+  </wsdl:message>
+  <wsdl:message name="AdjuntarRebeldeSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjuntarRebeldeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjuntarPlanetaSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjuntarPlaneta" />
+  </wsdl:message>
+  <wsdl:message name="AdjuntarPlanetaSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjuntarPlanetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjuntarIdentificacionSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjuntarIdentificacion" />
+  </wsdl:message>
+  <wsdl:message name="AdjuntarIdentificacionSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjuntarIdentificacionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceImperialSoap">
+    <wsdl:operation name="AdjuntarRebelde">
+      <wsdl:input message="tns:AdjuntarRebeldeSoapIn" />
+      <wsdl:output message="tns:AdjuntarRebeldeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjuntarPlaneta">
+      <wsdl:input message="tns:AdjuntarPlanetaSoapIn" />
+      <wsdl:output message="tns:AdjuntarPlanetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjuntarIdentificacion">
+      <wsdl:input message="tns:AdjuntarIdentificacionSoapIn" />
+      <wsdl:output message="tns:AdjuntarIdentificacionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceImperialSoap" type="tns:WebServiceImperialSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AdjuntarRebelde">
+      <soap:operation soapAction="http://tempuri.org/AdjuntarRebelde" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjuntarPlaneta">
+      <soap:operation soapAction="http://tempuri.org/AdjuntarPlaneta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjuntarIdentificacion">
+      <soap:operation soapAction="http://tempuri.org/AdjuntarIdentificacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceImperialSoap12" type="tns:WebServiceImperialSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AdjuntarRebelde">
+      <soap12:operation soapAction="http://tempuri.org/AdjuntarRebelde" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjuntarPlaneta">
+      <soap12:operation soapAction="http://tempuri.org/AdjuntarPlaneta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjuntarIdentificacion">
+      <soap12:operation soapAction="http://tempuri.org/AdjuntarIdentificacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceImperial">
+    <wsdl:port name="WebServiceImperialSoap" binding="tns:WebServiceImperialSoap">
+      <soap:address location="http://localhost:49207/WebServiceImperial.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceImperialSoap12" binding="tns:WebServiceImperialSoap12">
+      <soap12:address location="http://localhost:49207/WebServiceImperial.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
